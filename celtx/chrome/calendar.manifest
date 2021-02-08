@@ -1,0 +1,2 @@
+skin calendar classic/1.0 jar:calendar.jar!/skin/classic/calendar/
+content calendar jar:calendar.jar!/content/calendar/

@@ -1,0 +1,12 @@
+content branding jar:celtx.jar!/content/branding/ xpcnativewrappers=yes
+overlay chrome://celtx/content/celtx.xul  chrome://celtx/content/editors/bookmarks.xul
+content celtx               jar:celtx.jar!/content/celtx/ xpcnativewrappers=yes contentaccessible=yes
+overlay chrome://celtx/content/celtx.xul  chrome://celtx/content/editors/external.xul
+locale  celtx bg       jar:celtx.jar!/locale/bg/celtx/
+locale  celtx bn-IN       jar:celtx.jar!/locale/bn-IN/celtx/
+locale  celtx ca       jar:celtx.jar!/locale/ca/celtx/
+locale  celtx cs       jar:celtx.jar!/locale/cs/celtx/
+locale  celtx da       jar:celtx.jar!/locale/da/celtx/
+locale  celtx de       jar:celtx.jar!/locale/de/celtx/
+locale  celtx el       jar:celtx.jar!/locale/el/celtx/
+locale  celtx en-US       jar:celtx.jar!/locale/en-US/celtx/
