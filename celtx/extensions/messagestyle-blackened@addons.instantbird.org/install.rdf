@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+<Description about="urn:mozilla:install-manifest">
+ <em:id>messagestyle-blackened@addons.instantbird.org</em:id>
+ <em:name>Blackened</em:name>
+ <em:version>0.9</em:version>
+ <em:description>Blackened</em:description>
+ <em:creator>Andreas Lanjerud (helloandy)</em:creator>
+ <em:appManaged>true</em:appManaged>
+ <em:hidden>true</em:hidden>
+ <em:iconURL>chrome://blackened/skin/blackened_5_20622_6557_thumb.png</em:iconURL>
+ <em:homepageURL>http://adiumxtras.com/index.php?a=xtras&amp;xtra_id=6557</em:homepageURL>
+ <em:targetApplication>
+  <Description>
+   <em:id>{33cb9019-c295-46dd-be21-8c4936574bee}</em:id>
+    <em:minVersion>0.2a1pre</em:minVersion>
+    <em:maxVersion>0.2.*</em:maxVersion>
+  </Description>
+ </em:targetApplication>
+ <em:targetApplication>
+  <Description>
+   <em:id>celtx@celtx.com</em:id>
+    <em:minVersion>2.5</em:minVersion>
+    <em:maxVersion>*</em:maxVersion>
+  </Description>
+ </em:targetApplication>
+</Description>
+
+</RDF>
