@@ -1,5 +1,5 @@
 /*
-//@line 44 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 44 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
 */
 
 /* This file implements the nsIHelperAppLauncherDialog interface.
@@ -233,7 +233,25 @@ nsUnknownContentTypeDialog.prototype = {
 
       this.makeFileUnique(aLocalFile);
 
-//@line 296 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 278 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
+      let ext;
+      try {
+        // We can fail here if there's no primary extension set
+        ext = "." + this.mLauncher.MIMEInfo.primaryExtension;
+      } catch (e) { }
+
+      // Append a file extension if it's an executable that doesn't have one
+      // but make sure we actually have an extension to add
+      let leaf = aLocalFile.leafName;
+      if (aLocalFile.isExecutable() && ext &&
+          leaf.substring(leaf.length - ext.length) != ext) {
+        let f = aLocalFile.clone();
+        aLocalFile.leafName = leaf + ext;
+
+        f.remove(false);
+        this.makeFileUnique(aLocalFile);
+      }
+//@line 296 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
 
       return aLocalFile;
     },
@@ -401,7 +419,7 @@ nsUnknownContentTypeDialog.prototype = {
         // want users to be able to autodownload .exe files. 
         var rememberChoice = this.dialogElement("rememberChoice");
 
-//@line 482 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 482 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
         if (shouldntRememberChoice) {
           rememberChoice.checked = false;
           rememberChoice.disabled = true;
@@ -541,12 +559,17 @@ nsUnknownContentTypeDialog.prototype = {
     // Returns true if opening the default application makes sense.
     openWithDefaultOK: function() {
         // The checking is different on Windows...
-//@line 632 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
-            // On other platforms, default is Ok if there is a default app.
-            // Note that nsIMIMEInfo providers need to ensure that this holds true
-            // on each platform.
-        return this.mLauncher.MIMEInfo.hasDefaultHandler;
-//@line 637 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 622 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
+        // Windows presents some special cases.
+        // We need to prevent use of "system default" when the file is
+        // executable (so the user doesn't launch nasty programs downloaded
+        // from the web), and, enable use of "system default" if it isn't
+        // executable (because we will prompt the user for the default app
+        // in that case).
+        
+        //  Default is Ok if the file isn't executable (and vice-versa).
+        return !this.mLauncher.targetFileIsExecutable;
+//@line 637 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
     },
     
     // Set "default" application description field.
@@ -567,9 +590,9 @@ nsUnknownContentTypeDialog.prototype = {
 
     // getPath:
     getPath: function (aFile) {
-//@line 660 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 660 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
       return aFile.path;
-//@line 662 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 662 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
     },
 
     // initAppAndSaveToDiskValues:
@@ -798,7 +821,7 @@ nsUnknownContentTypeDialog.prototype = {
           // for the file to be saved to to pass to |saveToDisk| - otherwise
           // we must ask the user to pick a save name.
 
-//@line 904 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 904 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
 
           // see @notify
           // we cannot use opener's setTimeout, see bug 420405
@@ -853,52 +876,85 @@ nsUnknownContentTypeDialog.prototype = {
     // Retrieve the pretty description from the file
     getFileDisplayName: function getFileDisplayName(file)
     { 
-//@line 966 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+//@line 959 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
+        if (file instanceof Components.interfaces.nsILocalFileWin) {
+          try {
+            return file.getVersionInfoField("FileDescription");
+          } catch (ex) {
+          }
+        }
+//@line 966 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
         return file.leafName;
     },
 
     // chooseApp:  Open file picker and prompt user for application.
     chooseApp: function() {
-//@line 1037 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
-      var nsIFilePicker = Components.interfaces.nsIFilePicker;
-      var fp = Components.classes["@mozilla.org/filepicker;1"]
-                         .createInstance(nsIFilePicker);
-      fp.init(this.mDialog,
-              this.dialogElement("strings").getString("chooseAppFilePickerTitle"),
-              nsIFilePicker.modeOpen);
+//@line 972 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
+    // Protect against the lack of an extension    
+    var fileExtension = "";
+    try {
+        fileExtension = this.mLauncher.MIMEInfo.primaryExtension;
+    } catch(ex) {
+    }
 
-      fp.appendFilters(nsIFilePicker.filterApps);
+    // Try to use the pretty description of the type, if one is available.
+    var typeString = this.mLauncher.MIMEInfo.description;
 
-      if (fp.show() == nsIFilePicker.returnOK && fp.file) {
+    if (!typeString) {
+      // If there is none, use the extension to 
+      // identify the file, e.g. "ZIP file"
+      if (fileExtension) {
+        typeString =
+          this.dialogElement("strings").
+          getFormattedString("fileType", [fileExtension.toUpperCase()]);
+      } else {
+        // If we can't even do that, just give up and show the MIME type.
+        typeString = this.mLauncher.MIMEInfo.MIMEType;
+      }
+    }
+
+    var params = {};
+    params.title = 
+      this.dialogElement("strings").getString("chooseAppFilePickerTitle");
+    params.description = typeString;
+    params.filename    = this.mLauncher.suggestedFileName;
+    params.mimeInfo    = this.mLauncher.MIMEInfo;
+    params.handlerApp  = null;
+
+    this.mDialog.openDialog("chrome://global/content/appPicker.xul", null,
+                            "chrome,modal,centerscreen,titlebar,dialog=yes",
+                            params);
+
+    if (params.handlerApp &&
+        params.handlerApp.executable &&
+        params.handlerApp.executable.isFile()) {
         // Show the "handler" menulist since we have a (user-specified) 
         // application now.
         this.dialogElement("modeDeck").setAttribute("selectedIndex", "0");
-        
+
         // Remember the file they chose to run.
-        var localHandlerApp = 
-          Components.classes["@mozilla.org/uriloader/local-handler-app;1"].
-          createInstance(Components.interfaces.nsILocalHandlerApp);
-        localHandlerApp.executable = fp.file;
-        this.chosenApp = localHandlerApp;
-        
-        // Update dialog.
+        this.chosenApp = params.handlerApp;
+
+        // Update dialog
         var otherHandler = this.dialogElement("otherHandler");
         otherHandler.removeAttribute("hidden");
-        otherHandler.setAttribute("path", this.getPath(this.chosenApp.executable));
-        otherHandler.label = this.chosenApp.executable.leafName;
+        otherHandler.setAttribute("path",
+          this.getPath(this.chosenApp.executable));
+        otherHandler.label = 
+          this.getFileDisplayName(this.chosenApp.executable);
         this.dialogElement("openHandler").selectedIndex = 1;
-        this.dialogElement("openHandler").setAttribute("lastSelectedItemID", "otherHandler");
-        
+        this.dialogElement("openHandler").setAttribute("lastSelectedItemID",
+          "otherHandler");
         this.dialogElement("mode").selectedItem = this.dialogElement("open");
-      }
-      else {
+    } else {
         var openHandler = this.dialogElement("openHandler");
         var lastSelectedID = openHandler.getAttribute("lastSelectedItemID");
         if (!lastSelectedID)
-          lastSelectedID = "defaultHandler";
+            lastSelectedID = "defaultHandler";
         openHandler.selectedItem = this.dialogElement(lastSelectedID);
-      }
-//@line 1076 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/downloads/src/nsHelperAppDlg.js.in"
+    }
+
+//@line 1076 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\downloads\src\nsHelperAppDlg.js.in"
     },
 
     // Turn this on to get debugging messages.

@@ -1,4 +1,4 @@
-//@line 44 "/home/tony/Development/celtx/mozilla/toolkit/content/debug.js"
+//@line 44 "c:\Users\Tony\Development\celtx\mozilla\toolkit\content\debug.js"
 
 var EXPORTED_SYMBOLS = ["NS_ASSERT"];
 

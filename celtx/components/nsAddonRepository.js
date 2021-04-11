@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /*
-//@line 38 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsAddonRepository.js"
+//@line 38 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsAddonRepository.js"
 */
 
 const Cc = Components.classes;

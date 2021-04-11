@@ -36,13 +36,13 @@
 
 // XXX Toolkit-specific preferences should be moved into toolkit.js
 
-//@line 40 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 40 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 
-//@line 43 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 43 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 
-//@line 49 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 49 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 
-//@line 51 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 51 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 pref("javascript.options.jit.chrome", true);
 pref("javascript.options.jit.content", true);
 
@@ -185,14 +185,14 @@ pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending af
 pref("xpinstall.whitelist.add", "studio.celtx.com");
 pref("xpinstall.whitelist.add.103", "studio.celtx.com");
 
-pref("general.useragent.locale", "en-US");
+pref("general.useragent.locale", "fr");
 pref("general.skins.selectedSkin", "classic/1.0");
 pref("general.useragent.extra.celtx", "Celtx/2.9.7");
 
 pref("general.smoothScroll", false);
-//@line 199 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
-pref("general.autoScroll", false);
-//@line 203 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 201 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
+pref("general.autoScroll", true);
+//@line 203 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 
 // Scripts & Windows prefs
 pref("dom.disable_open_during_load",              true);
@@ -239,7 +239,7 @@ pref("intl.menuitems.alwaysappendaccesskeys","chrome://global/locale/intl.proper
 pref("intl.menuitems.insertseparatorbeforeaccesskeys","chrome://global/locale/intl.properties");
 
 // 0=lines, 1=pages, 2=history , 3=text size
-//@line 263 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 263 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 pref("mousewheel.withshiftkey.action",2);
 pref("mousewheel.withshiftkey.sysnumlines",false);
 pref("mousewheel.withshiftkey.numlines",1);
@@ -249,7 +249,7 @@ pref("mousewheel.withaltkey.numlines",1);
 pref("mousewheel.withmetakey.action",0);
 pref("mousewheel.withmetakey.sysnumlines",true);
 pref("mousewheel.withmetakey.numlines",1);
-//@line 273 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 273 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 pref("mousewheel.withcontrolkey.action",3);
 pref("mousewheel.withcontrolkey.sysnumlines",false);
 pref("mousewheel.withcontrolkey.numlines",1);
@@ -321,9 +321,9 @@ pref("pfs.datasource.url", "https://angstrom.greyfirst.net/plugins/PluginFinderS
 
 // This is really a global preference, since it affects the prefwindow widget
 pref("browser.preferences.instantApply", false);
-//@line 347 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 347 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 pref("browser.preferences.animateFadeIn", false);
-//@line 349 "/home/tony/Development/celtx/mozilla/celtx/app/profile/celtx.js"
+//@line 349 "c:\Users\Tony\Development\celtx\mozilla\celtx\app\profile\celtx.js"
 
 // Setting this pref to |true| forces BiDi UI menu items and keyboard shortcuts
 // to be exposed. By default, only expose it for bidi-associated system locales.

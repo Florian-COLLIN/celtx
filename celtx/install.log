@@ -1,0 +1,397 @@
+Celtx Installation Started: 2021-04-06 19:07:17
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Installation Details
+-------------------------------------------------------------------------------
+  Install Dir: C:\Program Files (x86)\Celtx
+  Locale     : fr
+  App Version: 2.9.7
+  GRE Version: 1.9.0.5
+
+-------------------------------------------------------------------------------
+Removing Obsolete Files and Directories
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Installing Main Files
+-------------------------------------------------------------------------------
+  Installed File: C:\Program Files (x86)\Celtx\AccessibleMarshal.dll
+  Installed File: C:\Program Files (x86)\Celtx\application.ini
+  Installed File: C:\Program Files (x86)\Celtx\blocklist.xml
+  Installed File: C:\Program Files (x86)\Celtx\celtx.exe
+  Installed File: C:\Program Files (x86)\Celtx\freebl3.chk
+  Installed File: C:\Program Files (x86)\Celtx\freebl3.dll
+  Installed File: C:\Program Files (x86)\Celtx\IA2Marshal.dll
+  Installed File: C:\Program Files (x86)\Celtx\js3250.dll
+  Installed File: C:\Program Files (x86)\Celtx\LICENSE
+  Installed File: C:\Program Files (x86)\Celtx\Microsoft.VC90.CRT.manifest
+  Installed File: C:\Program Files (x86)\Celtx\msvcm90.dll
+  Installed File: C:\Program Files (x86)\Celtx\msvcp90.dll
+  Installed File: C:\Program Files (x86)\Celtx\msvcr90.dll
+  Installed File: C:\Program Files (x86)\Celtx\nspr4.dll
+  Installed File: C:\Program Files (x86)\Celtx\nss3.dll
+  Installed File: C:\Program Files (x86)\Celtx\nssckbi.dll
+  Installed File: C:\Program Files (x86)\Celtx\nssdbm3.dll
+  Installed File: C:\Program Files (x86)\Celtx\nssutil3.dll
+  Installed File: C:\Program Files (x86)\Celtx\platform.ini
+  Installed File: C:\Program Files (x86)\Celtx\plc4.dll
+  Installed File: C:\Program Files (x86)\Celtx\plds4.dll
+  Installed File: C:\Program Files (x86)\Celtx\README.txt
+  Installed File: C:\Program Files (x86)\Celtx\smime3.dll
+  Installed File: C:\Program Files (x86)\Celtx\softokn3.chk
+  Installed File: C:\Program Files (x86)\Celtx\softokn3.dll
+  Installed File: C:\Program Files (x86)\Celtx\sqlite3.dll
+  Installed File: C:\Program Files (x86)\Celtx\ssl3.dll
+  Installed File: C:\Program Files (x86)\Celtx\xpcom.dll
+  Installed File: C:\Program Files (x86)\Celtx\xpcom_core.dll
+  Installed File: C:\Program Files (x86)\Celtx\res\arrow.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\arrowd.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\broken-image.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\charsetalias.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\charsetData.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\contenteditable.css
+  Installed File: C:\Program Files (x86)\Celtx\res\designmode.css
+  Installed File: C:\Program Files (x86)\Celtx\res\EditorOverride.css
+  Installed File: C:\Program Files (x86)\Celtx\res\forms.css
+  Installed File: C:\Program Files (x86)\Celtx\res\grabber.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\hiddenWindow.html
+  Installed File: C:\Program Files (x86)\Celtx\res\html.css
+  Installed File: C:\Program Files (x86)\Celtx\res\langGroups.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\language.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\loading-image.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\mathml.css
+  Installed File: C:\Program Files (x86)\Celtx\res\quirk.css
+  Installed File: C:\Program Files (x86)\Celtx\res\svg.css
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-column-after-active.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-column-after-hover.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-column-after.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-column-before-active.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-column-before-hover.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-column-before.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-row-after-active.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-row-after-hover.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-row-after.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-row-before-active.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-row-before-hover.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-add-row-before.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-remove-column-active.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-remove-column-hover.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-remove-column.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-remove-row-active.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-remove-row-hover.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\table-remove-row.gif
+  Installed File: C:\Program Files (x86)\Celtx\res\ua.css
+  Installed File: C:\Program Files (x86)\Celtx\res\viewsource.css
+  Installed File: C:\Program Files (x86)\Celtx\res\wincharset.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\html\folder.png
+  Installed File: C:\Program Files (x86)\Celtx\res\fonts\mathfont.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\fonts\mathfontStandardSymbolsL.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\fonts\mathfontSTIXNonUnicode.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\fonts\mathfontSTIXSize1.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\fonts\mathfontSymbol.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\fonts\mathfontUnicode.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\entityTables\html40Latin1.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\entityTables\html40Special.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\entityTables\html40Symbols.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\entityTables\htmlEntityVersions.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\entityTables\mathml20.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\entityTables\transliterate.properties
+  Installed File: C:\Program Files (x86)\Celtx\res\dtd\mathml.dtd
+  Installed File: C:\Program Files (x86)\Celtx\res\dtd\xhtml11.dtd
+  Installed File: C:\Program Files (x86)\Celtx\plugins\npnul32.dll
+  Installed File: C:\Program Files (x86)\Celtx\modules\debug.js
+  Installed File: C:\Program Files (x86)\Celtx\modules\DownloadUtils.jsm
+  Installed File: C:\Program Files (x86)\Celtx\modules\ISO8601DateUtils.jsm
+  Installed File: C:\Program Files (x86)\Celtx\modules\JSON.jsm
+  Installed File: C:\Program Files (x86)\Celtx\modules\Microformats.js
+  Installed File: C:\Program Files (x86)\Celtx\modules\PluralForm.jsm
+  Installed File: C:\Program Files (x86)\Celtx\modules\XPCOMUtils.jsm
+  Installed File: C:\Program Files (x86)\Celtx\js\calAlarm.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calAlarmMonitor.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calAlarmService.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calAttachment.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calAttendee.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calAuthUtils.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calCachedCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calCalendarManager.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calCalendarSearchService.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calDateTimeFormatter.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calDavCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calEvent.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calFreeBusyService.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calHtmlExport.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calICSCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calIcsImportExport.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calIcsParser.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calIcsSerializer.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calItemBase.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calItipItem.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calItipProcessor.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calListFormatter.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calMemoryCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calMonthGridPrinter.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calOutlookCSVImportExport.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calProtocolHandler.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calProviderBase.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calProviderUtils.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calRecurrenceInfo.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calRelation.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calStorageCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calTimezoneService.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calTodo.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calTransactionManager.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calUtils.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWcapCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWcapCalendarItems.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWcapErrors.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWcapRequest.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWcapSession.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWcapUtils.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWeekInfoService.js
+  Installed File: C:\Program Files (x86)\Celtx\js\calWeekPrinter.js
+  Installed File: C:\Program Files (x86)\Celtx\greprefs\all.js
+  Installed File: C:\Program Files (x86)\Celtx\greprefs\security-prefs.js
+  Installed File: C:\Program Files (x86)\Celtx\greprefs\xpinstall.js
+  Installed File: C:\Program Files (x86)\Celtx\extensions\{972ce4c6-7e08-4474-a285-3208198ce6fd}\install.rdf
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\chrome.manifest
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\install.rdf
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\platform\WINNT\chrome\icons\default\winInspectorMain.ico
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\platform\OS2\chrome\icons\default\winInspectorMain.ico
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\platform\Linux\chrome\icons\default\winInspectorMain.xpm
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\platform\Linux\chrome\icons\default\winInspectorMain16.xpm
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\defaults\preferences\inspector.js
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\components\inspector-cmdline.js
+  Installed File: C:\Program Files (x86)\Celtx\extensions\inspector@mozilla.org\chrome\inspector.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\default-palette@celtx.com\chrome.manifest
+  Installed File: C:\Program Files (x86)\Celtx\extensions\default-palette@celtx.com\install.rdf
+  Installed File: C:\Program Files (x86)\Celtx\extensions\default-palette@celtx.com\chrome\default-palette.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome.manifest
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\install.rdf
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\timezones.sqlite
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\defaults\preferences\preferences.js
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-bg.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-bn-IN.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-ca.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-cs.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-da.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-de.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-el.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-en-US.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-es-ES.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-fi.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-fr.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-gl.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-hu.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-it.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-ja.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-ka.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-lv.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-mk.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-nb-NO.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-nl.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-nn-NO.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-pl.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-pt-BR.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-pt-PT.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-ro.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-ru.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-sk.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-sl.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-sr.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-sv-SE.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-tr.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-uk.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-zh-CN.jar
+  Installed File: C:\Program Files (x86)\Celtx\extensions\calendar-timezones@mozilla.org\chrome\calendar-timezones-zh-TW.jar
+  Installed File: C:\Program Files (x86)\Celtx\defaults\pref\celtx.js
+  Installed File: C:\Program Files (x86)\Celtx\defaults\pref\channel-prefs.js
+  Installed File: C:\Program Files (x86)\Celtx\defaults\autoconfig\platform.js
+  Installed File: C:\Program Files (x86)\Celtx\defaults\autoconfig\prefcalls.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calCompositeCalendar.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calDavCalendarModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calICSCalendarModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calImportExportModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calItemModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calMemoryCalendarModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calStorageCalendarModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\calWcapCalendarModule.js
+  Installed File: C:\Program Files (x86)\Celtx\components\celtx.xpt
+  Installed File: C:\Program Files (x86)\Celtx\components\celtxLogger.js
+  Installed File: C:\Program Files (x86)\Celtx\components\celtxMediaManager.js
+  Installed File: C:\Program Files (x86)\Celtx\components\FeedProcessor.js
+  Installed File: C:\Program Files (x86)\Celtx\components\jar50.dll
+  Installed File: C:\Program Files (x86)\Celtx\components\jsconsole-clhandler.js
+  Installed File: C:\Program Files (x86)\Celtx\components\jsd3250.dll
+  Installed File: C:\Program Files (x86)\Celtx\components\nsAddonRepository.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsBadCertHandler.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsBlocklistService.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsCeltxContentHandler.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsCeltxProtocolHandler.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsCeltxService.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsContentDispatchChooser.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsContentPrefService.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsDefaultCLH.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsDownloadManagerUI.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsExtensionManager.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsHandlerService.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsHelperAppDlg.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsLoginInfo.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsLoginManager.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsLoginManagerPrompter.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsPostUpdateWin.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsProgressDialog.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsProxyAutoConfig.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsTryToClose.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsUpdateService.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsURLFormatter.js
+  Installed File: C:\Program Files (x86)\Celtx\components\nsWebHandlerApp.js
+  Installed File: C:\Program Files (x86)\Celtx\components\pluginGlue.js
+  Installed File: C:\Program Files (x86)\Celtx\components\storage-Legacy.js
+  Installed File: C:\Program Files (x86)\Celtx\components\txEXSLTRegExFunctions.js
+  Installed File: C:\Program Files (x86)\Celtx\components\xpcom.xpt
+  Installed File: C:\Program Files (x86)\Celtx\components\xpinstal.dll
+  Installed File: C:\Program Files (x86)\Celtx\chrome\calendar.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\calendar.manifest
+  Installed File: C:\Program Files (x86)\Celtx\chrome\celtx.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\celtx.manifest
+  Installed File: C:\Program Files (x86)\Celtx\chrome\classic.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\classic.manifest
+  Installed File: C:\Program Files (x86)\Celtx\chrome\comm.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\comm.manifest
+  Installed File: C:\Program Files (x86)\Celtx\chrome\pippki.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\pippki.manifest
+  Installed File: C:\Program Files (x86)\Celtx\chrome\toolkit.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\toolkit.manifest
+
+-------------------------------------------------------------------------------
+DLL Registration
+-------------------------------------------------------------------------------
+  Registered: C:\Program Files (x86)\Celtx\AccessibleMarshal.dll
+
+-------------------------------------------------------------------------------
+Installing Localized Files
+-------------------------------------------------------------------------------
+  Installed File: C:\Program Files (x86)\Celtx\uninstall\helper.exe
+  Installed File: C:\Program Files (x86)\Celtx\dictionaries\en-US.aff
+  Installed File: C:\Program Files (x86)\Celtx\dictionaries\en-US.dic
+  Installed File: C:\Program Files (x86)\Celtx\dictionaries\fr.aff
+  Installed File: C:\Program Files (x86)\Celtx\dictionaries\fr.dic
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\localstore.rdf
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\mimeTypes.rdf
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\prefs.js
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\1_Film.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\2_Documentary.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\3_Theatre.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\4_Podcast.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\5_Storyboard.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\6_ComicBook.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\7_Text.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\ComicBook.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\Documentary.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\Film.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\Podcast.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\Storyboard.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\Text.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxTemplates\Theatre.png
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxSamples\1_TheWizard.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxSamples\2_AVSampleProject.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxSamples\3_AudioplaySampleProject.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxSamples\4_StageplaySampleProject.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxSamples\5_ComicSampleProject.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\profile\CeltxSamples\6_NovelSampleProject.celtx
+  Installed File: C:\Program Files (x86)\Celtx\defaults\pref\celtx-l10n.js
+  Installed File: C:\Program Files (x86)\Celtx\chrome\calendar-fr.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\calendar-fr.manifest
+  Installed File: C:\Program Files (x86)\Celtx\chrome\fr.jar
+  Installed File: C:\Program Files (x86)\Celtx\chrome\fr.manifest
+
+-------------------------------------------------------------------------------
+Adding Additional Files
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Adding Registry Entries
+-------------------------------------------------------------------------------
+  Added Registry String: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Main | Install Directory | C:\Program Files (x86)\Celtx
+  Added Registry String: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Main | PathToExe | C:\Program Files (x86)\Celtx\celtx.exe
+  Added Registry String: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Main | Program Folder Path | C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Celtx
+  Added Registry DWord: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Main | Create Desktop Shortcut | 1
+  Added Registry DWord: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Main | Create Quick Launch Shortcut | 1
+  Added Registry String: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Uninstall | Uninstall Log Folder | C:\Program Files (x86)\Celtx\uninstall
+  Added Registry String: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Uninstall | Description | Celtx (2.9.7)
+  Added Registry String: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr) |  | 2.9.7 (fr)
+  Added Registry String: HKLM | Software\Greyfirst\Celtx 2.9.7\bin | PathToExe | C:\Program Files (x86)\Celtx\celtx.exe
+  Added Registry String: HKLM | Software\Greyfirst\Celtx 2.9.7\extensions | Components | C:\Program Files (x86)\Celtx\components
+  Added Registry String: HKLM | Software\Greyfirst\Celtx 2.9.7\extensions | Plugins | C:\Program Files (x86)\Celtx\plugins
+  Added Registry String: HKLM | Software\Greyfirst\Celtx 2.9.7 | GeckoVer | 1.9.0.5
+  Added Registry String: HKLM | Software\Greyfirst\Celtx |  | 1.9.0.5
+  Added Registry String: HKLM | Software\Greyfirst\Celtx | CurrentVersion | 2.9.7 (fr)
+  Added Registry DWord: HKLM | Software\Greyfirst\Celtx\2.9.7 (fr)\Uninstall | Create Start Menu Shortcut | 1
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | Comments | Celtx
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | DisplayIcon | C:\Program Files (x86)\Celtx\celtx.exe,0
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | DisplayName | Celtx (2.9.7)
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | DisplayVersion | 2.9.7 (fr)
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | InstallLocation | C:\Program Files (x86)\Celtx
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | Publisher | Greyfirst
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | UninstallString | C:\Program Files (x86)\Celtx\uninstall\helper.exe
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | URLInfoAbout | http://www.celtx.com/
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | URLUpdateInfo | http://www.celtx.com/
+  Added Registry DWord: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | NoModify | 1
+  Added Registry DWord: HKLM | Software\Microsoft\Windows\CurrentVersion\Uninstall\Celtx (2.9.7) | NoRepair | 1
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\App Paths\celtx.exe |  | C:\Program Files (x86)\Celtx\celtx.exe
+  Added Registry String: HKLM | Software\Microsoft\Windows\CurrentVersion\App Paths\celtx.exe | Path | C:\Program Files (x86)\Celtx
+  Added Registry Key: HKLM | Software\Microsoft\MediaPlayer\ShimInclusionList\CELTX.EXE
+
+-------------------------------------------------------------------------------
+Adding Shortcuts
+-------------------------------------------------------------------------------
+  Added Shortcut: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Celtx\Celtx.lnk
+  Added Shortcut: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Celtx\Celtx (Mode sans échec).lnk
+  Added Shortcut: C:\Users\Florian\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Celtx.lnk
+  Added Shortcut: C:\Users\Public\Desktop\Celtx.lnk
+
+-------------------------------------------------------------------------------
+Updating Uninstall Log With Previous Uninstall Log
+-------------------------------------------------------------------------------
+  Added To Uninstall Log: File: \chrome\calendar-en-US.jar
+  Added To Uninstall Log: File: \chrome\calendar-en-US.manifest
+  Added To Uninstall Log: File: \chrome\en-US.jar
+  Added To Uninstall Log: File: \chrome\en-US.manifest
+  Added To Uninstall Log: File: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Celtx\Celtx (Safe Mode).lnk
+  Added To Uninstall Log: File: \glib.dll
+  Added To Uninstall Log: File: \purple.dll
+  Added To Uninstall Log: File: \xml2.dll
+  Added To Uninstall Log: File: \modules\imContentSink.jsm
+  Added To Uninstall Log: File: \modules\imSmileys.jsm
+  Added To Uninstall Log: File: \modules\imThemes.jsm
+  Added To Uninstall Log: File: \extensions\messagestyle-minimal20@addons.instantbird.org\chrome.manifest
+  Added To Uninstall Log: File: \extensions\messagestyle-minimal20@addons.instantbird.org\install.rdf
+  Added To Uninstall Log: File: \extensions\messagestyle-minimal20@addons.instantbird.org\chrome\minimal20.jar
+  Added To Uninstall Log: File: \extensions\messagestyle-depth@addons.instantbird.org\chrome.manifest
+  Added To Uninstall Log: File: \extensions\messagestyle-depth@addons.instantbird.org\install.rdf
+  Added To Uninstall Log: File: \extensions\messagestyle-depth@addons.instantbird.org\chrome\depth.jar
+  Added To Uninstall Log: File: \extensions\messagestyle-blackened@addons.instantbird.org\chrome.manifest
+  Added To Uninstall Log: File: \extensions\messagestyle-blackened@addons.instantbird.org\install.rdf
+  Added To Uninstall Log: File: \extensions\messagestyle-blackened@addons.instantbird.org\chrome\blackened.jar
+  Added To Uninstall Log: File: \extensions\emoticons-msn-smileys@m513901.de\chrome.manifest
+  Added To Uninstall Log: File: \extensions\emoticons-msn-smileys@m513901.de\install.rdf
+  Added To Uninstall Log: File: \extensions\emoticons-msn-smileys@m513901.de\chrome\msn-smileys.jar
+  Added To Uninstall Log: File: \components\gg.dll
+  Added To Uninstall Log: File: \components\irc.dll
+  Added To Uninstall Log: File: \components\jabber.dll
+  Added To Uninstall Log: File: \components\msn.dll
+  Added To Uninstall Log: File: \components\myspace.dll
+  Added To Uninstall Log: File: \components\netsoul.dll
+  Added To Uninstall Log: File: \components\novell.dll
+  Added To Uninstall Log: File: \components\oscar.dll
+  Added To Uninstall Log: File: \components\purplexpcom.dll
+  Added To Uninstall Log: File: \components\qq.dll
+  Added To Uninstall Log: File: \components\simple.dll
+  Added To Uninstall Log: File: \components\smileProtocolHandler.js
+  Added To Uninstall Log: File: \components\yahoo.dll
+  Added To Uninstall Log: File: \chrome\instantbird.jar
+  Added To Uninstall Log: File: \chrome\instantbird.manifest
+
+-------------------------------------------------------------------------------
+Celtx Installation Finished: 2021-04-06 19:08:09

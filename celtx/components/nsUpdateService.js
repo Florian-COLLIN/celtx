@@ -1,4 +1,4 @@
-//@line 44 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 44 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
 const PREF_APP_UPDATE_ENABLED             = "app.update.enabled";
 const PREF_APP_UPDATE_AUTO                = "app.update.auto";
@@ -30,7 +30,10 @@ const URI_UPDATE_NS             = "http://www.mozilla.org/2005/app-update";
 
 const KEY_GREDIR          = "GreD";
 const KEY_APPDIR          = "XCurProcD";
-//@line 79 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 76 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
+const KEY_UPDROOT         = "UpdRootD";
+const KEY_UAPPDATA        = "UAppData";
+//@line 79 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
 const DIR_UPDATES         = "updates";
 const FILE_UPDATE_STATUS  = "update.status";
@@ -92,7 +95,7 @@ var gConsole    = null;
 var gLogEnabled = { };
 
 // shared code for suppressing bad cert dialogs
-//@line 40 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/shared/src/badCertHandler.js"
+//@line 40 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\shared\src\badCertHandler.js"
 
 /**
  * Only allow built-in certs for HTTPS connections.  See bug 340198.
@@ -158,7 +161,7 @@ BadCertHandler.prototype = {
     return this;
   }
 };
-//@line 141 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 141 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
 /**
  * Logs a string to the error console.
@@ -266,7 +269,14 @@ function getDirInternal(key, pathArray, shouldCreate, update) {
   var fileLocator = Components.classes["@mozilla.org/file/directory_service;1"]
                               .getService(Components.interfaces.nsIProperties);
   var dir = fileLocator.get(key, Components.interfaces.nsIFile);
-//@line 256 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 249 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
+  if (update) {
+    try {
+      dir = fileLocator.get(KEY_UPDROOT, Components.interfaces.nsIFile);
+    } catch (e) {
+    }
+  }
+//@line 256 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
   for (var i = 0; i < pathArray.length; ++i) {
     dir.append(pathArray[i]);
     if (shouldCreate && !dir.exists())
@@ -372,7 +382,12 @@ function getUpdatesDir(key) {
     appDir = fileLocator.get(key, Components.interfaces.nsIFile);
   else {
     appDir = fileLocator.get(KEY_APPDIR, Components.interfaces.nsIFile);
-//@line 367 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 362 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
+    try {
+      appDir = fileLocator.get(KEY_UPDROOT, Components.interfaces.nsIFile);
+    } catch (e) {
+    }
+//@line 367 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
   }
   appDir.append(DIR_UPDATES);
   appDir.append("0");
@@ -514,9 +529,9 @@ function getLocale() {
     return gLocale;
 
   try {
-//@line 512 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 512 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
     var updaterIni = getFile(KEY_GREDIR, [FILE_UPDATER_INI]);
-//@line 514 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 514 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
     var iniParser = Components.classes["@mozilla.org/xpcom/ini-parser-factory;1"]
                               .getService(nsIINIParserFactory).createINIParser(updaterIni);
     gLocale = iniParser.getString("Installation", "Locale");
@@ -1073,7 +1088,7 @@ function UpdateService() {
     gOSVersion = encodeURIComponent(osVersion);
   }
 
-//@line 1079 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 1079 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
   // Start the update timer only after a profile has been selected so that the
   // appropriate values for the update check are read from the user's profile.
@@ -1169,7 +1184,28 @@ UpdateService.prototype = {
       status = null;
 
     var updRootKey = null;
-//@line 1196 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 1175 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
+    function findPreviousUpdate(key) {
+      var updateDir = getUpdatesDir(key);
+      if (updateDir.exists()) {
+        status = readStatusFile(updateDir);
+        // Previous download should succeed. Otherwise, we will not be here!
+        if (status == STATE_SUCCEEDED)
+          updRootKey = key;
+        else
+          status = null;
+      }
+    }
+
+    // required when updating from Fx 2.0.0.1 to 2.0.0.3 (or later)
+    // on Windows Vista.
+    if (status == null)
+      findPreviousUpdate(KEY_UAPPDATA);
+
+    // required to migrate from older versions.
+    if (status == null)
+      findPreviousUpdate(KEY_APPDIR);
+//@line 1196 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
     if (status == STATE_DOWNLOADING) {
       LOG("UpdateService", "_postUpdateProcessing: Downloading patch, resuming...");
@@ -1213,13 +1249,13 @@ UpdateService.prototype = {
 
         LOG("UpdateService", "_postUpdateProcessing: Install Succeeded, Showing UI");
         prompter.showUpdateInstalled(update);
-//@line 1243 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 1243 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
         // Perform platform-specific post-update processing.
         if (POST_UPDATE_CONTRACTID in Components.classes) {
           Components.classes[POST_UPDATE_CONTRACTID].
               createInstance(Components.interfaces.nsIRunnable).run();
         }
-//@line 1249 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 1249 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
         // Done with this update. Clean it up.
         cleanupActiveUpdate(updRootKey);
@@ -1522,7 +1558,85 @@ UpdateService.prototype = {
         upDirFile.create(nsILocalFile.NORMAL_FILE_TYPE, PERMS_FILE);
         upDirFile.remove(false);
       }
-//@line 1630 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 1552 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
+      var sysInfo =
+        Components.classes["@mozilla.org/system-info;1"]
+                  .getService(Components.interfaces.nsIPropertyBag2);
+
+      // Example windowsVersion:  Windows XP == 5.1
+      var windowsVersion = sysInfo.getProperty("version");
+      LOG("UpdateService", "canUpdate?  windowsVersion = " + windowsVersion);
+
+      // For Vista, updates can be performed to a location requiring 
+      // admin privileges by requesting elevation via the UAC prompt when 
+      // launching updater.exe if the appDir is under the Program Files 
+      // directory (e.g. C:\Program Files\) and UAC is turned on and 
+      // we can elevate (e.g. user has a split token)
+      //
+      // Note: this does note attempt to handle the case where UAC is
+      // turned on and the installation directory is in a restricted
+      // location that requires admin privileges to update other than 
+      // Program Files.
+
+      var userCanElevate = false;
+
+      if (parseFloat(windowsVersion) >= 6) {
+        try {
+          var fileLocator = 
+            Components.classes["@mozilla.org/file/directory_service;1"]
+                      .getService(Components.interfaces.nsIProperties);
+          // KEY_UPDROOT will fail and throw an exception if
+          // appDir is not under the Program Files, so we rely on that
+          var dir = fileLocator.get(KEY_UPDROOT, Components.interfaces.nsIFile);
+          // appDir is under Program Files, so check if the user can elevate
+          userCanElevate = 
+            gApp.QueryInterface(Components.interfaces.nsIWinAppHelper)
+                .userCanElevate;
+          LOG("UpdateService", 
+              "canUpdate?  on Vista, userCanElevate = " + userCanElevate);
+        }
+        catch (ex) {
+          // When the installation directory is not under Program Files,
+          // fall through to checking if write access to the 
+          // installation directory is available.
+          LOG("UpdateService", 
+              "canUpdate?  on Vista, appDir is not under the Program Files");
+        }
+      }
+
+      // On Windows, we no longer store the update under the app dir
+      // if the app dir is under C:\Program Files.
+      //
+      // If we are on Windows (including Vista, if we can't elevate)
+      // we need to check that
+      // we can create and remove files from the actual app directory
+      // (like C:\Program Files\Mozilla Firefox).  If we can't
+      // (because this user is not an adminstrator, for example)
+      // canUpdate() should return false.
+      //
+      // For Vista, we perform this check to enable updating the 
+      // application when the user has write access to the installation 
+      // directory under the following scenarios:
+      // 1) the installation directory is not under Program Files 
+      //    (e.g. C:\Program Files)
+      // 2) UAC is turned off
+      // 3) UAC is turned on and the user is not an admin 
+      //    (e.g. the user does not have a split token)
+      // 4) UAC is turned on and the user is already elevated,
+      //    so they can't be elevated again.
+      if (!userCanElevate) {
+        // if we're unable to create the test file
+        // the code below will throw an exception 
+        var actualAppDir = getDir(KEY_APPDIR, []);
+        var actualAppDirFile = actualAppDir.clone();
+        actualAppDirFile.append(FILE_PERMS_TEST);
+        LOG("UpdateService", "canUpdate?  testing " + actualAppDirFile.path);
+        if (!actualAppDirFile.exists()) {
+          actualAppDirFile.create(nsILocalFile.NORMAL_FILE_TYPE, PERMS_FILE);
+          actualAppDirFile.remove(false);
+        }
+      }
+//@line 1630 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
     }
     catch (e) {
        LOG("UpdateService", "can't update, no privileges: " + e);
@@ -2709,7 +2823,7 @@ TimerManager.prototype = {
   }
 };
 
-//@line 2817 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 2817 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 /**
  * UpdatePrompt
  * An object which can prompt the user with information about updates, request
@@ -2987,7 +3101,7 @@ UpdatePrompt.prototype = {
     return this;
   }
 };
-//@line 3095 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3095 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 
 var gModule = {
   registerSelf: function(componentManager, fileSpec, location, type) {
@@ -3030,13 +3144,13 @@ var gModule = {
                className  : "Update Checker",
                factory    : makeFactory(Checker)
              },
-//@line 3138 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3138 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
     prompt:  { CID        : Components.ID("{27ABA825-35B5-4018-9FDD-F99250A0E722}"),
                contractID : "@mozilla.org/updates/update-prompt;1",
                className  : "Update Prompt",
                factory    : makeFactory(UpdatePrompt)
              },
-//@line 3144 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3144 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
     timers:  { CID        : Components.ID("{B322A5C0-A419-484E-96BA-D7182163899F}"),
                contractID : "@mozilla.org/updates/timer-manager;1",
                className  : "Timer Manager",
@@ -3080,14 +3194,14 @@ function NSGetModule(compMgr, fileSpec) {
  *          the specified update, false otherwise.
  */
 function isCompatible(update) {
-//@line 3188 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3188 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
   var em =
       Components.classes["@mozilla.org/extensions/manager;1"].
       getService(nsIExtensionManager);
   var items = em.getIncompatibleItemList("", update.extensionVersion,
     update.platformVersion, nsIUpdateItem.TYPE_ANY, false, { });
   return items.length == 0;
-//@line 3197 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3197 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
 }
 
 /**
@@ -3106,7 +3220,7 @@ function showPromptIfNoIncompatibilities(update) {
     prompter.showUpdateAvailable(update);
   }
 
-//@line 3216 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3216 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
   /**
    * Determines if an addon is compatible with a particular update.
    * @param   addon
@@ -3215,6 +3329,6 @@ function showPromptIfNoIncompatibilities(update) {
     em.update([], 0, mode, listener);
   }
   else
-//@line 3325 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/update/src/nsUpdateService.js.in"
+//@line 3325 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\update\src\nsUpdateService.js.in"
     showPrompt(update);
 }

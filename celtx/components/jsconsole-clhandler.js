@@ -1,4 +1,4 @@
-//@line 41 "/home/tony/Development/celtx/mozilla/toolkit/components/console/jsconsole-clhandler.js"
+//@line 41 "c:\Users\Tony\Development\celtx\mozilla\toolkit\components\console\jsconsole-clhandler.js"
 const Cc = Components.classes;
 const Ci = Components.interfaces;
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");

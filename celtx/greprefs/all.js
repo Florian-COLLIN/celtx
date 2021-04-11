@@ -134,7 +134,7 @@ pref("gfx.color_management.display_profile", "");
 pref("accessibility.browsewithcaret", false);
 pref("accessibility.warn_on_browsewithcaret", true);
 
-//@line 138 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+//@line 138 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 // Tab focus model bit field:
 // 1 focuses text controls, 2 focuses other form elements, 4 adds links.
 // Most users will want 1, 3, or 7.
@@ -147,7 +147,7 @@ pref("accessibility.tabfocus_applies_to_xul", false);
 // unless this preference was set manually
 pref("ui.scrollToClick", 0);
 
-//@line 154 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+//@line 154 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 
 pref("accessibility.usetexttospeech", "");
 pref("accessibility.usebrailledisplay", "");
@@ -527,7 +527,7 @@ pref("network.protocol-handler.external.data", false);
 pref("network.protocol-handler.external.ms-help", false);
 pref("network.protocol-handler.external.shell", false);
 pref("network.protocol-handler.external.vnd.ms.radio", false);
-//@line 536 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+//@line 536 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 pref("network.protocol-handler.external.disk", false);
 pref("network.protocol-handler.external.disks", false);
 pref("network.protocol-handler.external.afp", false);
@@ -757,7 +757,12 @@ pref("network.negotiate-auth.gsslib", "");
 // Specify if the gss lib comes standard with the OS
 pref("network.negotiate-auth.using-native-gsslib", true);
 
-//@line 771 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+//@line 766 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+// Default to using the SSPI intead of GSSAPI on windows 
+pref("network.auth.use-sspi", true);
+
+//@line 771 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 
 // The following prefs are used to enable automatic use of the operating
 // system's NTLM implementation to silently authenticate the user with their
@@ -781,9 +786,9 @@ pref("network.hosts.nntp_server",           "news.mozilla.org");
 
 pref("permissions.default.image",           1); // 1-Accept, 2-Deny, 3-dontAcceptForeign
 
-//@line 796 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
-pref("network.proxy.type",                  5);
-//@line 803 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+//@line 798 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+pref("network.proxy.type",                  0);
+//@line 803 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 
 pref("network.proxy.ftp",                   "");
 pref("network.proxy.ftp_port",              0);
@@ -1117,154 +1122,217 @@ pref("font.minimum-size.x-western", 0);
 pref("font.minimum-size.x-unicode", 0);
 pref("font.minimum-size.x-user-def", 0);
 
-//@line 1520 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+//@line 1137 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+pref("font.name.serif.ar", "Times New Roman");
+pref("font.name.sans-serif.ar", "Arial");
+pref("font.name.monospace.ar", "Courier New");
+pref("font.name.cursive.ar", "Comic Sans MS");
 
-//@line 1937 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+pref("font.name.serif.el", "Times New Roman");
+pref("font.name.sans-serif.el", "Arial");
+pref("font.name.monospace.el", "Courier New");
+pref("font.name.cursive.el", "Comic Sans MS");
 
-//@line 2134 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+pref("font.name.serif.he", "Narkisim");
+pref("font.name.sans-serif.he", "Arial");
+pref("font.name.monospace.he", "Fixed Miriam Transparent");
+pref("font.name.cursive.he", "Guttman Yad");
+pref("font.name-list.serif.he", "Narkisim, David");
+pref("font.name-list.monospace.he", "Fixed Miriam Transparent, Miriam Fixed, Rod, Courier New");
+pref("font.name-list.cursive.he", "Guttman Yad, Ktav, Arial");
 
-//@line 2225 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+// For CJK fonts, we list a font twice in name-list, once in the native script and once in English
+// because the name of a CJK font returned by Win32 API is beyond our control and depends on
+// whether or not Mozilla is run on CJK Win 9x/ME or Win 2k/XP with a CJK locale.
+// (see bug 227815)
 
-//@line 2228 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
-// Handled differently under Mac/Windows
-pref("network.hosts.smtp_server", "localhost");
-pref("network.hosts.pop_server", "pop");
-pref("network.protocol-handler.warn-external.file", false);
-pref("layout.css.dpi", -1); // max(96dpi, System setting)
-pref("browser.drag_out_of_frame_style", 1);
-pref("editor.singleLine.pasteNewlines", 0);
+pref("font.name.serif.ja", "ＭＳ Ｐ明朝"); // "MS PMincho"
+pref("font.name.sans-serif.ja", "ＭＳ Ｐゴシック"); // "MS PGothic"
+pref("font.name.monospace.ja", "ＭＳ ゴシック"); // "MS Gothic"
+pref("font.name-list.serif.ja", "MS PMincho, ＭＳ Ｐ明朝, MS Mincho, MS PGothic, MS Gothic");
+pref("font.name-list.sans-serif.ja", "MS PGothic, ＭＳ Ｐゴシック, MS Gothic, MS PMincho, MS Mincho");
+pref("font.name-list.monospace.ja", "MS Gothic, ＭＳ ゴシック, MS Mincho, ＭＳ 明朝, MS PGothic, MS PMincho");
 
-// Middle-mouse handling
-pref("middlemouse.paste", true);
-pref("middlemouse.contentLoadURL", true);
-pref("middlemouse.openNewWindow", true);
-pref("middlemouse.scrollbarPosition", true);
+pref("font.name.serif.ko", "바탕"); // "Batang" 
+pref("font.name.sans-serif.ko", "굴림"); // "Gulim" 
+pref("font.name.monospace.ko", "굴림체"); // "GulimChe" 
+pref("font.name.cursive.ko", "궁서"); // "Gungseo"
 
-// Clipboard behavior
-pref("clipboard.autocopy", true);
+pref("font.name-list.serif.ko", "Batang, 바탕, Gulim, 굴림"); 
+pref("font.name-list.sans-serif.ko", "Gulim, 굴림"); 
+pref("font.name-list.monospace.ko", "GulimChe, 굴림체"); 
+pref("font.name-list.cursive.ko", "Gungseo, 궁서"); 
 
-pref("browser.urlbar.clickSelectsAll", false);
+pref("font.name.serif.th", "Tahoma");
+pref("font.name.sans-serif.th", "Tahoma");
+pref("font.name.monospace.th", "Tahoma");
+pref("font.name.cursive.th", "Tahoma");
 
-// Tab focus model bit field:
-// 1 focuses text controls, 2 focuses other form elements, 4 adds links.
-// Leave this at the default, 7, to match mozilla1.0-era user expectations.
-// pref("accessibility.tabfocus", 1);
+pref("font.name.serif.tr", "Times New Roman");
+pref("font.name.sans-serif.tr", "Arial");
+pref("font.name.monospace.tr", "Courier New");
+pref("font.name.cursive.tr", "Comic Sans MS");
 
-// autocomplete keyboard grab workaround
-pref("autocomplete.grab_during_popup", true);
-pref("autocomplete.ungrab_during_mode_switch", true);
+pref("font.name.serif.x-baltic", "Times New Roman");
+pref("font.name.sans-serif.x-baltic", "Arial");
+pref("font.name.monospace.x-baltic", "Courier New");
+pref("font.name.cursive.x-baltic", "Comic Sans MS");
 
-// Default to using the system filepicker if possible, but allow
-// toggling to use the XUL filepicker
-pref("ui.allow_platform_file_picker", true);
+pref("font.name.serif.x-central-euro", "Times New Roman");
+pref("font.name.sans-serif.x-central-euro", "Arial");
+pref("font.name.monospace.x-central-euro", "Courier New");
+pref("font.name.cursive.x-central-euro", "Comic Sans MS");
 
-// should NetworkManager be authoritative for online/offline status?
-pref("toolkit.networkmanager.disable", false);
+pref("font.name.serif.x-cyrillic", "Times New Roman");
+pref("font.name.sans-serif.x-cyrillic", "Arial");
+pref("font.name.monospace.x-cyrillic", "Courier New");
+pref("font.name.cursive.x-cyrillic", "Comic Sans MS");
 
-pref("helpers.global_mime_types_file", "/etc/mime.types");
-pref("helpers.global_mailcap_file", "/etc/mailcap");
-pref("helpers.private_mime_types_file", "~/.mime.types");
-pref("helpers.private_mailcap_file", "~/.mailcap");
-pref("java.global_java_version_file", "/etc/.java/versions");
-pref("java.private_java_version_file", "~/.java/versions");
-pref("java.default_java_location_solaris", "/usr/j2se");
-pref("java.default_java_location_others", "/usr/java");
-pref("java.java_plugin_library_name", "javaplugin_oji");
-pref("applications.telnet", "xterm -e telnet %h %p");
-pref("applications.tn3270", "xterm -e tn3270 %h");
-pref("applications.rlogin", "xterm -e rlogin %h");
-pref("applications.rlogin_with_user", "xterm -e rlogin %h -l %u");
-pref("print.print_command", "lpr ${MOZ_PRINTER_NAME:+-P\"$MOZ_PRINTER_NAME\"}");
-pref("print.printer_list", ""); // list of printers, separated by spaces
-pref("print.print_reversed", false);
-pref("print.print_color", true);
-pref("print.print_landscape", false);
-pref("print.print_paper_size", 0);
+pref("font.name.serif.x-unicode", "Times New Roman");
+pref("font.name.sans-serif.x-unicode", "Arial");
+pref("font.name.monospace.x-unicode", "Courier New");
+pref("font.name.cursive.x-unicode", "Comic Sans MS");
 
-// print_extra_margin enables platforms to specify an extra gap or margin
-// around the content of the page for Print Preview only
-pref("print.print_extra_margin", 0); // twips
+pref("font.name.serif.x-western", "Times New Roman");
+pref("font.name.sans-serif.x-western", "Arial");
+pref("font.name.monospace.x-western", "Courier New");
+pref("font.name.cursive.x-western", "Comic Sans MS");
 
-pref("print.whileInPrintPreview", false);
+pref("font.name.serif.zh-CN", "宋体"); //MS Song
+pref("font.name.sans-serif.zh-CN", "宋体"); //MS Song
+pref("font.name.monospace.zh-CN", "宋体"); //MS Song
+pref("font.name-list.serif.zh-CN", "MS Song, 宋体, SimSun");
+pref("font.name-list.sans-serif.zh-CN", "MS Song, 宋体, SimSun");
+pref("font.name-list.monospace.zh-CN", "MS Song, 宋体, SimSun");
 
-pref("font.allow_double_byte_special_chars", true);
-// font names
+// Per Taiwanese users' demand. They don't want to use TC fonts for
+// rendering Latin letters. (bug 88579)
+pref("font.name.serif.zh-TW", "Times New Roman"); 
+pref("font.name.sans-serif.zh-TW", "Arial"); 
+pref("font.name.monospace.zh-TW", "細明體");  // MingLiU
+pref("font.name-list.serif.zh-TW", "新細明體,PMingLiu,細明體,MingLiU"); 
+pref("font.name-list.sans-serif.zh-TW", "新細明體,PMingLiU,細明體,MingLiU");
+pref("font.name-list.monospace.zh-TW", "MingLiU,細明體");
 
-pref("font.alias-list", "sans,sans-serif,serif,monospace");
+// hkscsm3u.ttf (HKSCS-2001) :  http://www.microsoft.com/hk/hkscs 
+// Hong Kong users have the same demand about glyphs for Latin letters (bug 88579) 
+pref("font.name.serif.zh-HK", "Times New Roman"); 
+pref("font.name.sans-serif.zh-HK", "Arial"); 
+pref("font.name.monospace.zh-HK", "細明體_HKSCS"); 
+pref("font.name-list.serif.zh-HK", "細明體_HKSCS, MingLiu_HKSCS, Ming(for ISO10646), MingLiU, 細明體"); 
+pref("font.name-list.sans-serif.zh-HK", "細明體_HKSCS, MingLiU_HKSCS, Ming(for ISO10646), MingLiU, 細明體");  
+pref("font.name-list.monospace.zh-HK", "MingLiU_HKSCS,  細明體_HKSCS, Ming(for ISO10646), MingLiU, 細明體");
 
-// ar
+pref("font.name.serif.x-devanagari", "Mangal");
+pref("font.name.sans-serif.x-devanagari", "Raghindi");
+pref("font.name.monospace.x-devanagari", "Mangal");
+pref("font.name-list.serif.x-devanagari", "Mangal, Raghindi");
+pref("font.name-list.monospace.x-devanagari", "Mangal, Raghindi");
 
-pref("font.name.serif.el", "serif");
-pref("font.name.sans-serif.el", "sans-serif");
-pref("font.name.monospace.el", "monospace");
+pref("font.name.serif.x-tamil", "Latha");
+pref("font.name.sans-serif.x-tamil", "Code2000");
+pref("font.name.monospace.x-tamil", "Latha");
+pref("font.name-list.serif.x-tamil", "Latha, Code2000");
+pref("font.name-list.monospace.x-tamil", "Latha, Code2000");
 
-pref("font.name.serif.he", "serif");
-pref("font.name.sans-serif.he", "sans-serif");
-pref("font.name.monospace.he", "monospace");
+//@line 1250 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 
-pref("font.name.serif.ja", "serif");
-pref("font.name.sans-serif.ja", "sans-serif");
-pref("font.name.monospace.ja", "monospace");
+pref("font.name.serif.x-armn", "Sylfaen");
+pref("font.name.sans-serif.x-armn", "Arial AMU");
+pref("font.name.monospace.x-armn", "Arial AMU");
+pref("font.name-list.serif.x-armn", "Sylfaen,Arial Unicode MS, Code2000");
+pref("font.name-list.monospace.x-armn", "Arial AMU, Arial Unicode MS, Code2000");
 
-pref("font.name.serif.ko", "serif");
-pref("font.name.sans-serif.ko", "sans-serif");
-pref("font.name.monospace.ko", "monospace");
+pref("font.name.serif.x-beng", "Vrinda");
+pref("font.name.sans-serif.x-beng", "Vrinda");
+pref("font.name.monospace.x-beng", "Mitra Mono");
+pref("font.name-list.serif.x-beng", "Vrinda, Akaash, Likhan, Ekushey Punarbhaba, Code2000, Arial Unicode MS"); 
+pref("font.name-list.sans-serif.x-beng", "Vrinda, Akaash, Likhan, Ekushey Punarbhaba, Code2000, Arial Unicode MS"); 
+pref("font.name-list.monospace.x-beng", "Likhan, Mukti Narrow, Code2000, Arial Unicode MS");
 
-pref("font.name.serif.th", "serif");
-pref("font.name.sans-serif.th", "sans-serif");
-pref("font.name.monospace.th", "monospace");
+pref("font.name.serif.x-cans", "Aboriginal Serif");
+pref("font.name.sans-serif.x-cans", "Aboriginal Sans");
+pref("font.name.monospace.x-cans", "Aboriginal Sans");
+pref("font.name-list.serif.x-cans", "Aboriginal Serif, BJCree Uni");
+pref("font.name-list.monospace.x-cans", "Aboriginal Sans, OskiDakelh, Pigiarniq, Uqammaq");
 
-pref("font.name.serif.tr", "serif");
-pref("font.name.sans-serif.tr", "sans-serif");
-pref("font.name.monospace.tr", "monospace");
+pref("font.name.serif.x-ethi", "Visual Geez Unicode");
+pref("font.name.sans-serif.x-ethi", "GF Zemen Unicode");
+pref("font.name.cursive.x-ethi", "Visual Geez Unicode Title");
+pref("font.name.monospace.x-ethi", "Ethiopia Jiret");
+pref("font.name-list.serif.x-ethi", "Visual Geez Unicode, Visual Geez Unicode Agazian, Code2000");
+pref("font.name-list.monospace.x-ethi", "Ethiopia Jiret, Code2000");
 
-pref("font.name.serif.x-baltic", "serif");
-pref("font.name.sans-serif.x-baltic", "sans-serif");
-pref("font.name.monospace.x-baltic", "monospace");
+pref("font.name.serif.x-geor", "Sylfaen");
+pref("font.name.sans-serif.x-geor", "BPG Classic 99U");
+pref("font.name.monospace.x-geor", "Code2000");
+pref("font.name-list.serif.x-geor", "Sylfaen, BPG Paata Khutsuri U, TITUS Cyberbit Basic"); 
+pref("font.name-list.monospace.x-geor", "BPG Classic 99U, Code2000, Arial Unicode MS");
 
-pref("font.name.serif.x-central-euro", "serif");
-pref("font.name.sans-serif.x-central-euro", "sans-serif");
-pref("font.name.monospace.x-central-euro", "monospace");
+pref("font.name.serif.x-gujr", "Shruti");
+pref("font.name.sans-serif.x-gujr", "Shruti");
+pref("font.name.monospace.x-gujr", "Code2000");
+pref("font.name-list.serif.x-gujr", "Shruti, Code2000, Arial Unicode MS"); 
+pref("font.name-list.monospace.x-gujr", "Code2000, Shruti, Arial Unicode MS");
 
-pref("font.name.serif.x-cyrillic", "serif");
-pref("font.name.sans-serif.x-cyrillic", "sans-serif");
-pref("font.name.monospace.x-cyrillic", "monospace");
+pref("font.name.serif.x-guru", "Raavi");
+pref("font.name.sans-serif.x-guru", "Code2000");
+pref("font.name.monospace.x-guru", "Code2000");
+pref("font.name-list.serif.x-guru", "Raavi, Saab, Code2000, Arial Unicode MS"); 
+pref("font.name-list.monospace.x-guru", "Code2000, Raavi, Saab, Arial Unicode MS");
 
-pref("font.name.serif.x-unicode", "serif");
-pref("font.name.sans-serif.x-unicode", "sans-serif");
-pref("font.name.monospace.x-unicode", "monospace");
+pref("font.name.serif.x-khmr", "PhnomPenh OT");
+pref("font.name.sans-serif.x-khmr", "Khmer OS");
+pref("font.name.monospace.x-khmr", "Code2000");
+pref("font.name-list.serif.x-khmr", "PhnomPenh OT,.Mondulkiri U GR 1.5, Khmer OS");
+pref("font.name-list.monospace.x-khmr", "Code2000, Khmer OS, Khmer OS System");
 
-pref("font.name.serif.x-user-def", "serif");
-pref("font.name.sans-serif.x-user-def", "sans-serif");
-pref("font.name.monospace.x-user-def", "monospace");
+pref("font.name.serif.x-mlym", "Rachana_w01");
+pref("font.name.sans-serif.x-mlym", "Rachana_w01");
+pref("font.name.monospace.x-mlym", "Rachana_w01");
+pref("font.name-list.serif.x-mlym", "AnjaliOldLipi, Kartika, ThoolikaUnicode, Code2000, Arial Unicode MS");
+pref("font.name-list.sans-serif.x-mlym", "AnjaliOldLipi, Kartika, ThoolikaUnicode, Code2000, Arial Unicode MS");
+pref("font.name-list.monospace.x-mlym", "AnjaliOldLipi, Kartika, ThoolikaUnicode, Code2000, Arial Unicode MS");
 
-pref("font.name.serif.x-western", "serif");
-pref("font.name.sans-serif.x-western", "sans-serif");
-pref("font.name.monospace.x-western", "monospace");
+pref("font.name.serif.x-orya", "ori1Uni");
+pref("font.name.sans-serif.x-orya", "ori1Uni");
+pref("font.name.monospace.x-orya", "ori1Uni");
+pref("font.name-list.serif.x-orya", "Kalinga, ori1Uni, Code2000, Arial Unicode MS");
+pref("font.name-list.sans-serif.x-orya", "Kalinga, ori1Uni, Code2000, Arial Unicode MS");
+pref("font.name-list.monospace.x-orya", "Kalinga, ori1Uni, Code2000, Arial Unicode MS");
 
-pref("font.name.serif.zh-CN", "serif");
-pref("font.name.sans-serif.zh-CN", "sans-serif");
-pref("font.name.monospace.zh-CN", "monospace");
+pref("font.name.serif.x-telu", "Gautami");
+pref("font.name.sans-serif.x-telu", "Gautami");
+pref("font.name.monospace.x-telu", "Gautami");
+pref("font.name-list.serif.x-telu", "Gautami, Akshar Unicode, Code2000, Arial Unicode MS");
+pref("font.name-list.sans-serif.x-telu", "Gautami, Akshar Unicode, Code2000, Arial Unicode MS");
+pref("font.name-list.monospace.x-telu", "Gautami, Akshar Unicode, Code2000, Arial Unicode MS");
 
-// ming_uni.ttf (HKSCS-2001) 
-// http://www.info.gov.hk/digital21/eng/hkscs/download/uime.exe
-pref("font.name.serif.zh-HK", "serif");
-pref("font.name.sans-serif.zh-HK", "sans-serif");
-pref("font.name.monospace.zh-HK", "monospace");
+pref("font.name.serif.x-knda", "Tunga");
+pref("font.name.sans-serif.x-knda", "Tunga");
+pref("font.name.monospace.x-knda", "Tunga");
+pref("font.name-list.serif.x-knda", "Tunga, AksharUnicode, Code2000, Arial Unicode MS");
+pref("font.name-list.sans-serif.x-knda", "Tunga, AksharUnicode, Code2000, Arial Unicode MS");
+pref("font.name-list.monospace.x-knda", "Tunga, AksharUnicode, Code2000, Arial Unicode MS");
 
-// zh-TW
+pref("font.name.serif.x-sinh", "Iskoola Pota");
+pref("font.name.sans-serif.x-sinh", "Iskoola Pota");
+pref("font.name.monospace.x-sinh", "Iskoola Pota");
+pref("font.name-list.serif.x-sinh", "Iskoola Pota, AksharUnicode");
+pref("font.name-list.sans-serif.x-sinh", "Iskoola Pota, AksharUnicode");
+pref("font.name-list.monospace.x-sinh", "Iskoola Pota, AksharUnicode");
 
 pref("font.default.ar", "sans-serif");
 pref("font.size.variable.ar", 16);
-pref("font.size.fixed.ar", 12);
+pref("font.size.fixed.ar", 13);
 
 pref("font.default.el", "serif");
 pref("font.size.variable.el", 16);
-pref("font.size.fixed.el", 12);
+pref("font.size.fixed.el", 13);
 
 pref("font.default.he", "sans-serif");
 pref("font.size.variable.he", 16);
-pref("font.size.fixed.he", 12);
+pref("font.size.fixed.he", 13);
 
 pref("font.default.ja", "sans-serif");
 pref("font.size.variable.ja", 16);
@@ -1277,47 +1345,23 @@ pref("font.size.fixed.ko", 16);
 pref("font.default.th", "serif");
 pref("font.size.variable.th", 16);
 pref("font.size.fixed.th", 13);
-pref("font.minimum-size.th", 13);
+pref("font.minimum-size.th", 10);
 
 pref("font.default.tr", "serif");
 pref("font.size.variable.tr", 16);
-pref("font.size.fixed.tr", 12);
+pref("font.size.fixed.tr", 13);
 
 pref("font.default.x-baltic", "serif");
 pref("font.size.variable.x-baltic", 16);
-pref("font.size.fixed.x-baltic", 12);
+pref("font.size.fixed.x-baltic", 13);
 
 pref("font.default.x-central-euro", "serif");
 pref("font.size.variable.x-central-euro", 16);
-pref("font.size.fixed.x-central-euro", 12);
+pref("font.size.fixed.x-central-euro", 13);
 
 pref("font.default.x-cyrillic", "serif");
 pref("font.size.variable.x-cyrillic", 16);
-pref("font.size.fixed.x-cyrillic", 12);
-
-pref("font.default.x-unicode", "serif");
-pref("font.size.variable.x-unicode", 16);
-pref("font.size.fixed.x-unicode", 12);
-
-pref("font.default.x-user-def", "serif");
-pref("font.size.variable.x-user-def", 16);
-pref("font.size.fixed.x-user-def", 12);
-
-pref("font.default.x-western", "serif");
-pref("font.size.variable.x-western", 16);
-pref("font.size.fixed.x-western", 12);
-
-pref("font.default.zh-CN", "sans-serif");
-pref("font.size.variable.zh-CN", 16);
-pref("font.size.fixed.zh-CN", 16);
-
-pref("font.default.zh-TW", "sans-serif");
-pref("font.size.variable.zh-TW", 16);
-pref("font.size.fixed.zh-TW", 16);
-
-pref("font.default.zh-HK", "sans-serif");
-pref("font.size.variable.zh-HK", 16);
-pref("font.size.fixed.zh-HK", 16);
+pref("font.size.fixed.x-cyrillic", 13);
 
 pref("font.default.x-devanagari", "serif");
 pref("font.size.variable.x-devanagari", 16);
@@ -1379,21 +1423,104 @@ pref("font.default.x-sinh", "serif");
 pref("font.size.variable.x-sinh", 16);
 pref("font.size.fixed.x-sinh", 13);
 
-/* PostScript print module prefs */
-// pref("print.postscript.enabled",      true);
-pref("print.postscript.paper_size",    "letter");
-pref("print.postscript.orientation",   "portrait");
-pref("print.postscript.print_command", "lpr ${MOZ_PRINTER_NAME:+-P\"$MOZ_PRINTER_NAME\"}");
+pref("font.default.x-unicode", "serif");
+pref("font.size.variable.x-unicode", 16);
+pref("font.size.fixed.x-unicode", 13);
 
-//@line 2490 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+pref("font.default.x-western", "serif");
+pref("font.size.variable.x-western", 16);
+pref("font.size.fixed.x-western", 13);
 
-//@line 2558 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+pref("font.default.zh-CN", "sans-serif");
+pref("font.size.variable.zh-CN", 16);
+pref("font.size.fixed.zh-CN", 16);
 
-//@line 2584 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+pref("font.default.zh-TW", "sans-serif");
+pref("font.size.variable.zh-TW", 16);
+pref("font.size.fixed.zh-TW", 16);
 
-//@line 2604 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+pref("font.default.zh-HK", "sans-serif");
+pref("font.size.variable.zh-HK", 16);
+pref("font.size.fixed.zh-HK", 16);
 
-//@line 2612 "/home/tony/Development/celtx/mozilla/modules/libpref/src/init/all.js"
+// We have special support for Monotype Symbol on Windows.
+pref("font.mathfont-family", "STIXNonUnicode, STIXSize1, STIXGeneral, Symbol, DejaVu Sans, Cambria Math");
+
+pref("ui.key.menuAccessKeyFocuses", true);
+
+// override double-click word selection behavior.
+pref("layout.word_select.eat_space_to_next_word", true);
+
+// scrollbar snapping region
+pref("slider.snapMultiplier", 6);
+
+// print_extra_margin enables platforms to specify an extra gap or margin
+// around the content of the page for Print Preview only
+pref("print.print_extra_margin", 90); // twips (90 twips is an eigth of an inch)
+
+// This indicates whether it should use the native dialog or the XP Dialog
+pref("print.use_native_print_dialog", true);
+
+// Whether to extend the native dialog with information on printing frames.
+pref("print.extend_native_print_dialog", true);
+
+// Locate Java by scanning the Sun JRE installation directory with a minimum version
+// Note: Does not scan if security.enable_java is not true
+pref("plugin.scan.SunJRE", "1.3");
+
+// Locate plugins by scanning the Adobe Acrobat installation directory with a minimum version
+pref("plugin.scan.Acrobat", "5.0");
+
+// Locate plugins by scanning the Quicktime installation directory with a minimum version
+pref("plugin.scan.Quicktime", "5.0");
+
+// Locate and scan the Window Media Player installation directory for plugins with a minimum version
+pref("plugin.scan.WindowsMediaPlayer", "7.0");
+
+// Locate plugins by the directories specified in the Windows registry for PLIDs
+// Which is currently HKLM\Software\MozillaPlugins\xxxPLIDxxx\Path
+pref("plugin.scan.plid.all", true);
+
+// Controls the scanning of the Navigator 4.x directory for plugins
+// When pref is missing, the default is to pickup popular plugins such as
+// Flash, Shockwave, Acrobat, and Quicktime. If set to true, ALL plugins
+// will be picked up and if set to false the scan will not happen at all
+//pref("plugin.scan.4xPluginFolder", false);
+
+// Help Windows NT, 2000, and XP dialup a RAS connection
+// when a network address is unreachable.
+pref("network.autodial-helper.enabled", true);
+
+// Pref to control whether we set ddeexec subkeys for the http
+// Internet shortcut protocol if we are handling it.  These
+// subkeys will be set only while we are running (to avoid the
+// problem of Windows showing an alert when it tries to use DDE
+// and we're not already running).
+pref("advanced.system.supportDDEExec", true);
+
+// Use CP932 compatible map for JIS X 0208
+pref("intl.jis0208.map", "CP932");
+
+// Switch the keyboard layout per window
+pref("intl.keyboard.per_window_layout", false);
+
+//@line 1520 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 1937 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2134 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2225 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2490 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2558 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2584 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2604 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
+
+//@line 2612 "c:\Users\Tony\Development\celtx\mozilla\modules\libpref\src\init\all.js"
 
 // Login Manager prefs
 pref("signon.rememberSignons",              true);

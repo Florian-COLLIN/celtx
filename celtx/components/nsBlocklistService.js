@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /*
-//@line 40 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsBlocklistService.js"
+//@line 40 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsBlocklistService.js"
 */
 
 const Cc = Components.classes;
@@ -45,7 +45,7 @@ var gABI = null;
 var gOSVersion = null;
 
 // shared code for suppressing bad cert dialogs
-//@line 40 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/shared/src/badCertHandler.js"
+//@line 40 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\shared\src\badCertHandler.js"
 
 /**
  * Only allow built-in certs for HTTPS connections.  See bug 340198.
@@ -111,7 +111,7 @@ BadCertHandler.prototype = {
     return this;
   }
 };
-//@line 85 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsBlocklistService.js"
+//@line 85 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsBlocklistService.js"
 
 /**
  * Logs a string to the error console.
@@ -359,7 +359,7 @@ function Blocklist() {
     gOSVersion = encodeURIComponent(osVersion);
   }
 
-//@line 341 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsBlocklistService.js"
+//@line 341 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsBlocklistService.js"
 }
 
 Blocklist.prototype = {
@@ -575,7 +575,7 @@ Blocklist.prototype = {
   },
 
   /**
-//@line 605 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsBlocklistService.js"
+//@line 605 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsBlocklistService.js"
    */
 
   _loadBlocklistFromFile: function(file) {

@@ -1,4 +1,4 @@
-//@line 38 "/home/tony/Development/celtx/mozilla/toolkit/components/nsDefaultCLH.js"
+//@line 38 "c:\Users\Tony\Development\celtx\mozilla\toolkit\components\nsDefaultCLH.js"
 
 const nsISupports              = Components.interfaces.nsISupports;
 

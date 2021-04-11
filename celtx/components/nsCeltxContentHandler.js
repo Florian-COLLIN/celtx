@@ -133,27 +133,26 @@ function getMostRecentWindow(aType) {
   return wm.getMostRecentWindow(aType);
 }
 
-//@line 141 "/home/tony/Development/celtx/mozilla/celtx/components/nsCeltxContentHandler.js"
+//@line 141 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
 
 // this returns the most recent Celtx window
 function getMostRecentCeltxWindow() {
   var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
                      .getService(Components.interfaces.nsIWindowMediator);
 
-//@line 148 "/home/tony/Development/celtx/mozilla/celtx/components/nsCeltxContentHandler.js"
-  var win = wm.getMostRecentWindow("celtx:main", true);
+//@line 161 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
+  var windowList = wm.getZOrderDOMWindowEnumerator("celtx:main", true);
+  if (!windowList.hasMoreElements())
+    return null;
 
-  // if we're lucky, this isn't a popup, and we can just return this
-  if (win && !win.toolbar.visible) {
-    var windowList = wm.getEnumerator("celtx:main", true);
-    // this is oldest to newest, so this gets a bit ugly
-    while (windowList.hasMoreElements()) {
-      var nextWin = windowList.getNext();
-      if (nextWin.toolbar.visible)
-        win = nextWin;
-    }
+  var win = windowList.getNext();
+  while (!win.toolbar.visible) {
+    if (!windowList.hasMoreElements()) 
+      return null;
+
+    win = windowList.getNext();
   }
-//@line 173 "/home/tony/Development/celtx/mozilla/celtx/components/nsCeltxContentHandler.js"
+//@line 173 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
 
   return win;
 }
@@ -262,13 +261,35 @@ var nsDefaultCommandLineHandler = {
   // running and have already been handled. This is compared against uri's
   // opened using DDE on Win32 so we only open one of the requests.
   _handledURIs: [ ],
-//@line 284 "/home/tony/Development/celtx/mozilla/celtx/components/nsCeltxContentHandler.js"
+//@line 282 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
+  _haveProfile: false,
+//@line 284 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
 
   /* nsICommandLineHandler */
   handle : function dch_handle(cmdLine) {
     var urilist = [];
 
-//@line 310 "/home/tony/Development/celtx/mozilla/celtx/components/nsCeltxContentHandler.js"
+//@line 290 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
+    // If we don't have a profile selected yet (e.g. the Profile Manager is
+    // displayed) we will crash if we open an url and then select a profile. To
+    // prevent this handle all url command line flags and set the command line's
+    // preventDefault to true to prevent the display of the ui. The initial
+    // command line will be retained when nsAppRunner calls LaunchChild though
+    // urls launched after the initial launch will be lost.
+    if (!this._haveProfile) {
+      try {
+        // This will throw when a profile has not been selected.
+        var fl = Components.classes["@mozilla.org/file/directory_service;1"]
+                           .getService(Components.interfaces.nsIProperties);
+        var dir = fl.get("ProfD", Components.interfaces.nsILocalFile);
+        this._haveProfile = true;
+      }
+      catch (e) {
+        while ((ar = cmdLine.handleFlagWithParam("url", false))) { }
+        cmdLine.preventDefault = true;
+      }
+    }
+//@line 310 "c:\Users\Tony\Development\celtx\mozilla\celtx\components\nsCeltxContentHandler.js"
 
     try {
       var ar;

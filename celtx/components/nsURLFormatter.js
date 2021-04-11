@@ -1,4 +1,4 @@
-//@line 37 "/home/tony/Development/celtx/mozilla/toolkit/components/urlformatter/src/nsURLFormatter.js"
+//@line 37 "c:\Users\Tony\Development\celtx\mozilla\toolkit\components\urlformatter\src\nsURLFormatter.js"
 /**
  * @class nsURLFormatterService
  *

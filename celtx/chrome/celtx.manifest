@@ -1,7 +1,7 @@
 content branding jar:celtx.jar!/content/branding/ xpcnativewrappers=yes
-overlay chrome://celtx/content/celtx.xul  chrome://celtx/content/editors/bookmarks.xul
 content celtx               jar:celtx.jar!/content/celtx/ xpcnativewrappers=yes contentaccessible=yes
 overlay chrome://celtx/content/celtx.xul  chrome://celtx/content/editors/external.xul
+overlay chrome://celtx/content/celtx.xul  chrome://celtx/content/editors/bookmarks.xul
 locale  celtx bg       jar:celtx.jar!/locale/bg/celtx/
 locale  celtx bn-IN       jar:celtx.jar!/locale/bn-IN/celtx/
 locale  celtx ca       jar:celtx.jar!/locale/ca/celtx/
@@ -10,3 +10,29 @@ locale  celtx da       jar:celtx.jar!/locale/da/celtx/
 locale  celtx de       jar:celtx.jar!/locale/de/celtx/
 locale  celtx el       jar:celtx.jar!/locale/el/celtx/
 locale  celtx en-US       jar:celtx.jar!/locale/en-US/celtx/
+locale  celtx es-ES       jar:celtx.jar!/locale/es-ES/celtx/
+locale  celtx fi       jar:celtx.jar!/locale/fi/celtx/
+locale  celtx fr       jar:celtx.jar!/locale/fr/celtx/
+locale  celtx gl       jar:celtx.jar!/locale/gl/celtx/
+locale  celtx hu       jar:celtx.jar!/locale/hu/celtx/
+locale  celtx it       jar:celtx.jar!/locale/it/celtx/
+locale  celtx ja       jar:celtx.jar!/locale/ja/celtx/
+locale  celtx ka       jar:celtx.jar!/locale/ka/celtx/
+locale  celtx lv       jar:celtx.jar!/locale/lv/celtx/
+locale  celtx mk       jar:celtx.jar!/locale/mk/celtx/
+locale  celtx nb-NO       jar:celtx.jar!/locale/nb-NO/celtx/
+locale  celtx nl       jar:celtx.jar!/locale/nl/celtx/
+locale  celtx nn-NO       jar:celtx.jar!/locale/nn-NO/celtx/
+locale  celtx pl       jar:celtx.jar!/locale/pl/celtx/
+locale  celtx pt-BR       jar:celtx.jar!/locale/pt-BR/celtx/
+locale  celtx pt-PT       jar:celtx.jar!/locale/pt-PT/celtx/
+locale  celtx ro       jar:celtx.jar!/locale/ro/celtx/
+locale  celtx ru       jar:celtx.jar!/locale/ru/celtx/
+locale  celtx sk       jar:celtx.jar!/locale/sk/celtx/
+locale  celtx sl       jar:celtx.jar!/locale/sl/celtx/
+locale  celtx sr       jar:celtx.jar!/locale/sr/celtx/
+locale  celtx sv-SE       jar:celtx.jar!/locale/sv-SE/celtx/
+locale  celtx tr       jar:celtx.jar!/locale/tr/celtx/
+locale  celtx uk       jar:celtx.jar!/locale/uk/celtx/
+locale  celtx zh-CN       jar:celtx.jar!/locale/zh-CN/celtx/
+locale  celtx zh-TW       jar:celtx.jar!/locale/zh-TW/celtx/

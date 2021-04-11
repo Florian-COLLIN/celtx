@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /*
-//@line 44 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 44 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
 */
 
 //
@@ -147,7 +147,7 @@ var gManifestNeedsFlush   = false;
 var gIDTest = /^(\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}|[a-z0-9-\._]*\@[a-z0-9-\._]+)$/i;
 
 // shared code for suppressing bad cert dialogs
-//@line 40 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/shared/src/badCertHandler.js"
+//@line 40 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\shared\src\badCertHandler.js"
 
 /**
  * Only allow built-in certs for HTTPS connections.  See bug 340198.
@@ -213,7 +213,7 @@ BadCertHandler.prototype = {
     return this;
   }
 };
-//@line 191 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 191 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
 
 /**
  * Creates a Version Checker object.
@@ -1376,7 +1376,148 @@ DirectoryInstallLocation.prototype = {
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIInstallLocation])
 };
 
-//@line 1499 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 1354 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
+
+const nsIWindowsRegKey = Ci.nsIWindowsRegKey;
+
+/**
+ * An object that identifies the location of installed items based on entries
+ * in the Windows registry.  For each application a subkey is defined that
+ * contains a set of values, where the name of each value is a GUID and the
+ * contents of the value is a filesystem path identifying a directory
+ * containing an installed item.
+ *
+ * @param   name
+ *          The string identifier of this Install Location.
+ * @param   rootKey
+ *          The root key (one of the ROOT_KEY_ values from nsIWindowsRegKey).
+ * @param   restricted
+ *          Indicates that the location may be restricted (e.g., this is
+ *          usually true of a system level install location).
+ * @param   priority
+ *          The priority of this install location.
+ * @constructor
+ */
+function WinRegInstallLocation(name, rootKey, restricted, priority) {
+  this._name = name;
+  this._rootKey = rootKey;
+  this._restricted = restricted;
+  this._priority = priority;
+  this._IDToDirMap = {};
+  this._DirToIDMap = {};
+
+  // Reading the registry may throw an exception, and that's ok.  In error
+  // cases, we just leave ourselves in the empty state.
+  try {
+    var path = this._appKeyPath + "\\Extensions";
+    var key = Cc["@mozilla.org/windows-registry-key;1"].
+              createInstance(nsIWindowsRegKey);
+    key.open(this._rootKey, path, nsIWindowsRegKey.ACCESS_READ);
+    this._readAddons(key);
+  } catch (e) {
+    if (key)
+      key.close();
+  }
+}
+WinRegInstallLocation.prototype = {
+  _name       : "",
+  _rootKey    : null,
+  _restricted : false,
+  _priority   : 0,
+  _IDToDirMap : null,  // mapping from ID to directory object
+  _DirToIDMap : null,  // mapping from directory path to ID
+
+  /**
+   * Retrieves the path of this Application's data key in the registry.
+   */
+  get _appKeyPath() {
+    var appVendor = gApp.vendor;
+    var appName = gApp.name;
+
+//@line 1416 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
+
+    // XULRunner-based apps may intentionally not specify a vendor:
+    if (appVendor != "")
+      appVendor += "\\";
+
+    return "SOFTWARE\\" + appVendor + appName;
+  },
+
+  /**
+   * Read the registry and build a mapping between GUID and directory for each
+   * installed item.
+   * @param   key
+   *          The key that contains the GUID->path pairs
+   */
+  _readAddons: function(key) {
+    var count = key.valueCount;
+    for (var i = 0; i < count; ++i) {
+      var id = key.getValueName(i);
+
+      var dir = Cc["@mozilla.org/file/local;1"].
+                createInstance(Ci.nsILocalFile);
+      dir.initWithPath(key.readStringValue(id));
+
+      if (dir.exists() && dir.isDirectory()) {
+        this._IDToDirMap[id] = dir;
+        this._DirToIDMap[dir.path] = id;
+      }
+    }
+  },
+
+  get name() {
+    return this._name;
+  },
+
+  get itemLocations() {
+    var locations = [];
+    for (var id in this._IDToDirMap) {
+      locations.push(this._IDToDirMap[id]);
+    }
+    return new FileEnumerator(locations);
+  },
+
+  get location() {
+    return null;
+  },
+
+  get restricted() {
+    return this._restricted;
+  },
+
+  // you should never be able to write to this location
+  get canAccess() {
+    return false;
+  },
+
+  get priority() {
+    return this._priority;
+  },
+
+  getItemLocation: function(id) {
+    return this._IDToDirMap[id];
+  },
+
+  getIDForLocation: function(dir) {
+    return this._DirToIDMap[dir.path];
+  },
+
+  getItemFile: function(id, filePath) {
+    var itemLocation = this.getItemLocation(id).clone();
+    var parts = filePath.split("/");
+    for (var i = 0; i < parts.length; ++i)
+      itemLocation.append(parts[i]);
+    return itemLocation;
+  },
+
+  itemIsManagedIndependently: function(id) {
+    return true;
+  },
+
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIInstallLocation])
+};
+
+//@line 1499 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
 
 /**
  * An object which handles the installation of an Extension.
@@ -2365,7 +2506,21 @@ function ExtensionManager() {
     InstallLocations.put(systemLocation);
   }
 
-//@line 2502 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 2488 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
+  // Register HKEY_LOCAL_MACHINE Install Location
+  InstallLocations.put(
+      new WinRegInstallLocation("winreg-app-global",
+                                nsIWindowsRegKey.ROOT_KEY_LOCAL_MACHINE,
+                                true,
+                                Ci.nsIInstallLocation.PRIORITY_APP_SYSTEM_GLOBAL + 10));
+
+  // Register HKEY_CURRENT_USER Install Location
+  InstallLocations.put(
+      new WinRegInstallLocation("winreg-app-user",
+                                nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
+                                false,
+                                Ci.nsIInstallLocation.PRIORITY_APP_SYSTEM_USER + 10));
+//@line 2502 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
 
   // Register Additional Install Locations
   var categoryManager = Cc["@mozilla.org/categorymanager;1"].
@@ -2729,7 +2884,12 @@ ExtensionManager.prototype = {
   _installGlobalItem: function(file) {
     if (!file || !file.exists())
       throw new Error("Unable to find the file specified on the command line!");
-//@line 2871 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 2866 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
+    // make sure the file is local on Windows
+    file.normalize();
+    if (file.path[1] != ':')
+      throw new Error("Can't install global chrome from non-local file "+file.path);
+//@line 2871 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
     var installManifestFile = extractRDFFileToTempDir(file, FILE_INSTALL_MANIFEST, true);
     if (!installManifestFile.exists())
       throw new Error("The package is missing an install manifest!");
@@ -5487,13 +5647,13 @@ ExtensionManager.prototype = {
       // count to 0 to prevent this dialog from being displayed again.
       this._downloadCount = 0;
       var result;
-//@line 5629 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 5629 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
       result = this._confirmCancelDownloads(this._downloadCount,
                                             "quitCancelDownloadsAlertTitle",
                                             "quitCancelDownloadsAlertMsgMultiple",
                                             "quitCancelDownloadsAlertMsg",
                                             "dontQuitButtonWin");
-//@line 5641 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 5641 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
       if (subject instanceof Ci.nsISupportsPRBool)
         subject.data = result;
     }
@@ -6007,7 +6167,7 @@ ExtensionItemUpdater.prototype = {
   _listener           : null,
 
   /* ExtensionItemUpdater
-//@line 6180 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 6180 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
   */
   checkForUpdates: function(aItems, aItemCount, aUpdateCheckType,
                             aListener) {
@@ -6365,7 +6525,7 @@ RDFItemUpdater.prototype = {
 
   onDatasourceLoaded: function(aDatasource, aLocalItem) {
     /*
-//@line 6578 "/home/tony/Development/celtx/mozilla/toolkit/mozapps/extensions/src/nsExtensionManager.js.in"
+//@line 6578 "c:\Users\Tony\Development\celtx\mozilla\toolkit\mozapps\extensions\src\nsExtensionManager.js.in"
     */
     if (!aDatasource.GetAllResources().hasMoreElements()) {
       LOG("RDFItemUpdater:onDatasourceLoaded: Datasource empty.\r\n" +
